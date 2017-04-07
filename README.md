@@ -1,20 +1,21 @@
-# saves the data of the Twitter Streaming API to slack and s3
+# nginx LTSV Format fleunt-forward docker image
 
+# docker-compose.yml
 
+```yaml
+version: '2'
+services:
 
-+ input-Twitter
-+ filter-twitterurl
-+ output-idcf
-+ output-slack
-```
-<match input.twitter.sampling.timestamp>
-  type slack
-  webhook_url ${SLACK_WEBHOOK_URL}
-  channel ${SLACK_CHANNEL}
-  username ${SLACK_USERNAME}
-  icon_emoji ${SLACK_ICON}
-  flush_interval 2s
-  message_keys twitter_url
-  message %s
-</match>
+  fluent-forward:
+    image: tokyohomesoc/fluent-forward
+    container_name: fluent-forward
+    restart: always
+    ports:
+      - "24224:24224"
+    environment:
+      IDCF_ACCESS_KEY: "xx-xxxxxxxxxxxxxxxxx"
+      IDCF_SECRET_KEY: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+      IDCF_BUCKET_NAME: "xxxxxxxxxxxx"
+      SLACK_FLUENT_WEBHOOK_URL: "https://hooks.slack.com/services/xxxxxxxxxx/xxxxxxxx/xxxxxxxxxxxxxxxxxxxxxxxx"
+      SLACK_FLUENT_CHANNEL: "foxboxsnet"
 ```
