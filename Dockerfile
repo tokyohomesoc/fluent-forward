@@ -27,6 +27,7 @@ RUN \
 	&& gem install fluent-plugin-s3 --no-ri --no-rdoc \
 	&& gem install fluent-plugin-slack --no-ri --no-rdoc \
 	&& gem install fluent-plugin-suppress --no-ri --no-rdoc \
+	&& gem install fluent-plugin-forest --no-ri --no-rdoc \
 	&& apk del .build-gem
 
 COPY /conf.d /fluentd/etc/conf.d/
