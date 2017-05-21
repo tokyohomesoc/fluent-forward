@@ -1,12 +1,9 @@
 FROM fluent/fluentd:latest
 MAINTAINER Tokyo HOME SOC <github@homesoc.tokyo>
 
-ENV PATH /home/fluent/.gem/ruby/2.3.0/bin:$PATH
-
 # Environment variable
 ARG TIMEZONE=Asia/Tokyo
 
-USER root
 WORKDIR /home/fluent
 
 RUN \
