@@ -13,13 +13,12 @@ RUN \
 	&& apk del .build-tzdata \
 	&& apk add --no-cache \
 	   		curl \
-			bash \
+				bash \
 	&& apk add --no-cache --virtual .build-gem \
-			git \
-			ruby-dev \
-			build-base \
-			libcurl \
-	&& chown -R fluent:fluent /fluentd/etc/ \
+				git \
+				ruby-dev \
+				build-base \
+				libcurl \
 	\
 	&& gem install fluent-plugin-s3 --no-ri --no-rdoc \
 	&& gem install fluent-plugin-slack --no-ri --no-rdoc \
